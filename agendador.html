@@ -25,13 +25,14 @@
             <div class="form-group">
                 <label for="tipo-evento">Tipo de Evento</label>
                 <select id="tipo-evento" name="tipo-evento" required>
+                    <option value="Reunião Pedagógica">Reunião Pedagógica</option>
                     <option value="Entrevista">Entrevista</option>
                     <option value="Aula Experimental">Aula Experimental</option>
                     <option value="Follow-up">Follow-up (Tarefa)</option>
                 </select>
             </div>
             <div class="form-group" id="subtipo-group">
-                <label for="subtipo-entrevista">Tipo de Entrevista</label>
+                <label for="subtipo-entrevista">Formato</label>
                 <select id="subtipo-entrevista" name="subtipo-entrevista">
                     <option value="Presencial">Presencial</option>
                     <option value="Online">Online</option>
@@ -157,7 +158,7 @@
                 submitButton.disabled = true;
                 cancelButton.disabled = true;
 
-                const isOnlineInterview = (tipoEventoSelect.value === 'Entrevista' || tipoEventoSelect.value === 'Aula Experimental') && document.getElementById('subtipo-entrevista').value === 'Online';
+                const isOnlineInterview = (tipoEventoSelect.value === 'Entrevista' || tipoEventoSelect.value === 'Aula Experimental' || tipoEventoSelect.value === 'Reunião Pedagógica') && document.getElementById('subtipo-entrevista').value === 'Online';
                 if (isOnlineInterview && !context.contact.email) {
                     alert('Para agendar uma atividade online, é obrigatório que o lead tenha um e-mail cadastrado no Chatwoot. Por favor, adicione o e-mail ao cadastro e tente novamente.');
                     statusEl.innerText = 'Falha na validação: E-mail ausente.';
